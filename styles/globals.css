@@ -9,6 +9,7 @@ p {
   color: #ffffff;
   display: inline;
 }
+/* 물음표 버튼 */
 .questionMark {
   margin-left: 10px;
   display: inline-block;
@@ -32,6 +33,10 @@ p {
   transform: translate(-50%, -50%);
   background: rgb(25, 25, 25);
   text-align: center;
+
+  @media screen and(max-width: 960px) {
+    width: 1vw;
+  }
 }
 .box h1 {
   color: white;
@@ -64,12 +69,13 @@ p {
   margin: 20px auto;
   text-align: center;
   border: 2px solid #1e90ff;
-  padding: 10px 30px;
+  padding: 13px 33px;
   outline: none;
   color: white;
   border-radius: 24px;
   transition: 0.25s;
   cursor: pointer;
+  font-size: 1rem;
 }
 .box input[type="submit"]:hover {
   background: #1e90ff;
@@ -83,6 +89,7 @@ p {
   position: absolute;
   background-color: #ffffff;
   border-radius: 24px;
+  transition: 0.2s ease-in-out;
 }
 .id_example1 {
   color: #000000;
@@ -92,4 +99,31 @@ p {
 .id_example2 {
   color: #1e90ff;
   text-decoration: underline;
+}
+
+.endingBox {
+  width: 400px;
+  height: 300px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(66, 66, 66);
+  text-align: center;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  text-align: center;
+}
+/* X 버튼 */
+.closeBtn {
+  float: right;
+  text-align: center;
+  cursor: pointer;
+}
+.closeBtn:after {
+  content: "\00d7";
+  font-size: 40pt;
+  line-height: 25px;
+  margin-top: 100px;
 }
