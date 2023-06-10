@@ -1,20 +1,23 @@
 import { useState } from "react";
-import { appendErrors, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 export default function Home() {
+  // form 데이터 자료형 지정
   interface HookFormTypes {
     id: string;
     email: string;
+    age: number;
+    gender: string;
   }
 
   // 물음표 버튼 State 설정
   const [visible, setVisible] = useState(false);
   // Submit 버튼 State 설정
-  const [submit, setSubmit] = useState(false);
+  // const [submit, setSubmit] = useState(false);
 
-  // handleSumbit
-  // watch는 입력값를 감시하는 기능
-  // register 결과 데이터의 속성을 결정하고 검증할때 쓴다.
+  // handleSumbit : 제출시 이벤트 제어
+  // watch : 입력값를 감시하는 기능
+  // register : 결과 데이터의 속성을 결정하고 검증할때 쓴다.
   const {
     register,
     watch,
@@ -26,9 +29,20 @@ export default function Home() {
   // console.log(watch());
   console.log(errors);
 
-  const onValid = (data: HookFormTypes) => {
-    console.log(data, "onvaild");
-    setSubmit(true);
+  const onValid = async (data: HookFormTypes) => {
+    console.log(data, "유효함");
+    alert("제출되었습니다");
+    // setSubmit(true);
+    await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => {
+      if (res.status === 200) console.log("Mail send", res);
+    });
   };
 
   // const onSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
@@ -42,7 +56,7 @@ export default function Home() {
       className="box"
       onSubmit={handleSubmit(onValid)}
     >
-      <h1>오블 인플루언서 분석기</h1>
+      <h1>오블 인플루언서 수요조사</h1>
       <p>블로그의 ID를 입력하세요</p>
       <a
         className="questionMark"
@@ -81,23 +95,58 @@ export default function Home() {
         {...register("email", {
           required: "이메일을 입력하세요.",
           pattern: {
-            value: /\S+@\S+\.\S+/,
-            message: "@과 .이 포함되지 않았습니다.",
+            value:
+              /(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/,
+            message: "알맞은 이메일이 아닙니다.",
           },
         })}
         type="text"
         className="email"
         placeholder="이메일을 입력하세요"
       />
+      <p>* 나이와 성별은 선택사항입니다</p>
+      <br />
       {errors.email && <small role="alert">{errors.email.message}</small>}
+      <p>나이를 입력해주세요</p>
+      <input
+        {
+          ...register("age")
+          // , {
+          //   required: "나이를 입력하세요",
+          //   pattern: {
+          //     value: /^[0-9]{1,2}$/,
+          //     message: "알맞은 값이 아닙니다. 다시입력해주세요",
+          //   },
+          // }
+        }
+        type="number"
+        placeholder="나이를 입력해주세요"
+      />
+      {errors.age && <small role="alert">{errors.age.message}</small>}
+      <p style={{ display: "block" }}>성별을 입력해주세요</p>
+      <input
+        {...register("gender")}
+        type="radio"
+        className="gender"
+        value="male"
+        name="gender"
+      />
+      <p>남성</p>
+      <input
+        {...register("gender")}
+        type="radio"
+        className="gender"
+        value="female"
+        name="gender"
+      />
+      <p>여성</p>
       <input
         type="submit"
         className="submit"
         value="제출하기"
         disabled={isSubmitting}
       />
-
-      {submit && (
+      {/* {submit && (
         <div className="endingBox">
           <div
             className="closeBtn"
@@ -107,7 +156,7 @@ export default function Home() {
           ></div>
           <h2> 정상적으로 제출되었습니다</h2>
         </div>
-      )}
+      )} */}
     </form>
   );
 }
