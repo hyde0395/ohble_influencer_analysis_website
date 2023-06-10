@@ -13,7 +13,7 @@ export default function Home() {
   // 물음표 버튼 State 설정
   const [visible, setVisible] = useState(false);
   // Submit 버튼 State 설정
-  const [submit, setSubmit] = useState(false);
+  // const [submit, setSubmit] = useState(false);
 
   // handleSumbit : 제출시 이벤트 제어
   // watch : 입력값를 감시하는 기능
@@ -31,7 +31,8 @@ export default function Home() {
 
   const onValid = async (data: HookFormTypes) => {
     console.log(data, "유효함");
-    setSubmit(true);
+    alert("제출되었습니다");
+    // setSubmit(true);
     await fetch("/api/contact", {
       method: "POST",
       headers: {
@@ -103,25 +104,28 @@ export default function Home() {
         className="email"
         placeholder="이메일을 입력하세요"
       />
+      <p>* 나이와 성별은 선택사항입니다</p>
+      <br />
       {errors.email && <small role="alert">{errors.email.message}</small>}
       <p>나이를 입력해주세요</p>
       <input
-        {...register("age", {
-          required: "나이를 입력하세요",
-          pattern: {
-            value: /^[0-9]{1,2}$/,
-            message: "알맞은 값이 아닙니다. 다시입력해주세요",
-          },
-        })}
+        {
+          ...register("age")
+          // , {
+          //   required: "나이를 입력하세요",
+          //   pattern: {
+          //     value: /^[0-9]{1,2}$/,
+          //     message: "알맞은 값이 아닙니다. 다시입력해주세요",
+          //   },
+          // }
+        }
         type="number"
         placeholder="나이를 입력해주세요"
       />
       {errors.age && <small role="alert">{errors.age.message}</small>}
       <p style={{ display: "block" }}>성별을 입력해주세요</p>
       <input
-        {...register("gender", {
-          required: "성별을 체크해주세요",
-        })}
+        {...register("gender")}
         type="radio"
         className="gender"
         value="male"
@@ -129,9 +133,7 @@ export default function Home() {
       />
       <p>남성</p>
       <input
-        {...register("gender", {
-          required: "성별을 체크해주세요",
-        })}
+        {...register("gender")}
         type="radio"
         className="gender"
         value="female"
@@ -144,7 +146,7 @@ export default function Home() {
         value="제출하기"
         disabled={isSubmitting}
       />
-      {submit && (
+      {/* {submit && (
         <div className="endingBox">
           <div
             className="closeBtn"
@@ -154,7 +156,7 @@ export default function Home() {
           ></div>
           <h2> 정상적으로 제출되었습니다</h2>
         </div>
-      )}
+      )} */}
     </form>
   );
 }
