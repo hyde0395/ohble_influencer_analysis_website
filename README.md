@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+인플우언서 마케팅 플랫폼 오블의 수요조사및 데이터 수집을 위한 설문 사이트입니다.
 
 ## Getting Started
 
