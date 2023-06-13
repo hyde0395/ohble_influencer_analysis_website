@@ -10,11 +10,10 @@ body {
   margin: 0 auto;
   border-bottom: 1.5px solid #1e264d;
 }
-
 .logo {
-  height: 100px;
-  width: 100px;
-  margin: 0;
+  width: 10%;
+  height: 10%;
+  margin: 20px auto;
 }
 /* 물음표 버튼 */
 .questionMark {
@@ -28,7 +27,7 @@ body {
   height: 25px;
   line-height: 29px;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -45,10 +44,31 @@ body {
 }
 .box h1 {
   color: #1e264d;
-  font-size: 5rem;
+  font-size: 60px;
   text-transform: uppercase;
   font-weight: 800;
+  padding-top: 30px;
 }
+@media screen and (max-width: 768px) {
+  .box h1 {
+    font: 1.5rem;
+  }
+
+  .box {
+    background-color: #1e90ff;
+    width: 100%;
+  }
+
+  div.settings label {
+    font-size: 1.5rem;
+  }
+
+  .box input[type="text"],
+  .box input[type="number"] {
+    padding: 16px 12px;
+  }
+}
+
 /* number input 화살표 없애기 */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -103,13 +123,14 @@ input[type="number"]::-webkit-inner-spin-button {
   left: 30%;
   position: absolute;
   text-align: center;
+  color: #5f5f5f;
 }
 .id_example1 {
   font-size: 1px;
 }
 
 .id_example2 {
-  color: #000000;
+  color: #5c5c5c;
   margin-left: 10px;
   line-height: 25px;
   display: inline;
@@ -128,10 +149,11 @@ small {
   font-size: 1rem;
   margin: 5px auto;
   text-align: center;
+  margin-left: 120px;
 }
 /* 중간 점 선 */
 .dashed_line {
-  margin: 10px auto;
+  margin: 25px auto;
   border-bottom: 4px dashed #1e264d;
 }
 div.settings {
@@ -146,7 +168,7 @@ div.settings label {
   width: 150px;
   margin: auto 0;
   text-align: right;
-  font-size: 1.5rem;
+  font-size: 20px;
 }
 div.settings label:after {
   content: "";

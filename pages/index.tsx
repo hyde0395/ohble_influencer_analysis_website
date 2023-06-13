@@ -25,7 +25,7 @@ export default function Home() {
     formState: { isSubmitting, errors, isDirty },
   } = useForm<HookFormTypes>();
   // 콘솔창에서 input 입력값을 실시간 감시.
-  // console.log(watch());
+  console.log(watch());
   console.log(errors);
 
   const onValid = async (data: HookFormTypes) => {
@@ -55,11 +55,11 @@ export default function Home() {
         className="box"
         onSubmit={handleSubmit(onValid)}
       >
-        <h1>오블 인플루언서 수요조사</h1>
+        <h1>오블 블로그 지수 분석기</h1>
 
         <div className="inputSection">
           <div className="settings">
-            <label style={{}} htmlFor="id">
+            <label htmlFor="id">
               <a
                 className="questionMark"
                 // 물음표 Hover 시 id_description 나타나기

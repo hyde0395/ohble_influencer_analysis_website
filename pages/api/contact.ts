@@ -20,10 +20,24 @@ export default function sendGmail(req: NextApiRequest, res: NextApiResponse) {
     subject: `${req.body.id}님이 수요조사를 완료하였습니다.`,
     text: `ID :${req.body.id} `,
     html: `
-    <p>id : ${req.body.id}</p>
-    <p>email : ${req.body.email}</p>
-    <p>나이 : ${req.body.age}</p>
-    <p>성별 : ${req.body.gender}</p>
+
+  <tr>
+    <td>ID</td>
+    <td>${req.body.id}</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>${req.body.email}</td>
+  </tr>
+  <tr>
+  <td>나이</td>
+  <td>${req.body.age}</td>
+  </tr>
+  <tr>
+   <td>성별</td>
+   <td>${req.body.gender}</td>
+ </tr>
+  </table>
     `,
   };
 
