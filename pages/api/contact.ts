@@ -29,7 +29,7 @@ export default function sendGmail(req: NextApiRequest, res: NextApiResponse) {
 
   transporter.sendMail(toHostMailData, function (err, info) {
     if (err) console.log(err);
-    else console.log(info);
+    // else console.log(info);
   });
   return res.send("보냈습니다");
 }
