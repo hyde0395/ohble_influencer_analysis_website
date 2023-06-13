@@ -50,8 +50,7 @@ export default function Home() {
       <div className="line"></div>
       <form
         acceptCharset="utf-8"
-        action="/api/post/new"
-        method="POST"
+        method="post"
         className="box"
         onSubmit={handleSubmit(onValid)}
       >
@@ -92,7 +91,6 @@ export default function Home() {
                   message: "아이디는 소문자, 대문자, 숫자로 구성되어야합니다",
                 },
               })}
-              name="blogid"
               type="text"
               className="id"
               placeholder="블로그 ID를 입력하세요"
@@ -114,7 +112,6 @@ export default function Home() {
               type="text"
               className="email"
               placeholder="이메일을 입력하세요"
-              name="email"
             />
           </div>
           {errors.email && <small role="alert">{errors.email.message}</small>}
@@ -126,7 +123,6 @@ export default function Home() {
               {...register("age")}
               type="number"
               placeholder="나이를 입력해주세요"
-              name="age"
             />
           </div>
           {errors.age && <small role="alert">{errors.age.message}</small>}
@@ -140,7 +136,6 @@ export default function Home() {
                 type="radio"
                 id="gender1"
                 value="male"
-                name="gender"
               />
               <label htmlFor="gender1">남자</label>
 
@@ -149,7 +144,6 @@ export default function Home() {
                 type="radio"
                 id="gender2"
                 value="female"
-                name="gender"
               />
               <label htmlFor="gender2">여자</label>
             </div>
