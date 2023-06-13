@@ -21,9 +21,9 @@ export default function sendGmail(req: NextApiRequest, res: NextApiResponse) {
     text: `ID :${req.body.id} `,
     html: `
 
-    <tr>
-    <th>ID</th>
-    <th>${req.body.id}</th>
+  <tr>
+    <td>ID</td>
+    <td>${req.body.id}</td>
   </tr>
   <tr>
     <td>Email</td>
