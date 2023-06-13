@@ -49,7 +49,7 @@ body {
   font-weight: 800;
   padding-top: 30px;
 }
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .box h1 {
     font: 1.5rem;
   }
@@ -65,9 +65,9 @@ body {
 
   .box input[type="text"],
   .box input[type="number"] {
-    padding: 16px 12px;
+    padding: 12px 12px;
   }
-}
+} */
 
 /* number input 화살표 없애기 */
 input[type="number"]::-webkit-outer-spin-button,
