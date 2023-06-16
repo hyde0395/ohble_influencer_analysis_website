@@ -3,7 +3,7 @@ import { WithId, Document } from "mongodb";
 
 export default async function handler(
   요청: {
-    body: string;
+    body: any;
     method: string;
   },
   응답: {
@@ -18,7 +18,7 @@ export default async function handler(
 
   if (요청.method == "POST") {
     // console.log(요청.body);
-    // let result = await db.collection("info").insertOne(요청.body);
+    let result = await db.collection("info").insertOne(JSON.parse(요청.body));
     return 응답.status(200).json("처리완료");
   }
   if (요청.method == "GET") {
