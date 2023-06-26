@@ -48,7 +48,7 @@ body {
 
 .box h1 {
   color: #1e264d;
-  font-size: 40px;
+  font-size: 30px;
   text-transform: uppercase;
   font-weight: 800;
   padding-top: 30px;
@@ -72,6 +72,8 @@ body {
   .box input[type="number"] {
     padding: 12px 12px;
   }
+
+
 }
 
 /* number input 화살표 없애기 */
@@ -179,13 +181,14 @@ div.settings label {
   display: inline-block;
   width: 150px;
   margin: auto 0;
-  text-align: right;
   font-size: 20px;
 }
 
 div.settings label:after {
   content: "";
 }
+
+div.settings input {}
 
 .gender {
   margin-right: 10px;
@@ -194,6 +197,7 @@ div.settings label:after {
 .inputSection {
   max-width: 500px;
   margin: 0 auto;
+
 }
 
 .radio_box {
