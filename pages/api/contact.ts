@@ -22,19 +22,19 @@ export default function sendGmail(req: NextApiRequest, res: NextApiResponse) {
     html: `
 
   <tr>
-    <td>ID</td>
+    <td>ID :</td>
     <td>${req.body.id}</td>
   </tr>
   <tr>
-    <td>Email</td>
+    <td>Email :</td>
     <td>${req.body.email}</td>
   </tr>
   <tr>
-  <td>나이</td>
+  <td>나이 :</td>
   <td>${req.body.age}</td>
   </tr>
   <tr>
-   <td>성별</td>
+   <td>성별 :</td>
    <td>${req.body.gender}</td>
  </tr>
   </table>

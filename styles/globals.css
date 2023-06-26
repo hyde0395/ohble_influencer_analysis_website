@@ -3,7 +3,6 @@ body {
   padding: 0;
   font-family: sans-serif;
   background: #ffffff;
-  overflow-x: hidden;
 }
 
 /* 로고 아래의 선 */
@@ -44,24 +43,39 @@ body {
   transform: translate(-50%, -50%);
   background: none;
   text-align: center;
+  overflow: hidden;
 }
 
 .box h1 {
   color: #1e264d;
-  font-size: 30px;
+  font-size: 70px;
   text-transform: uppercase;
   font-weight: 800;
   padding-top: 30px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   .box h1 {
     font: 1.5rem;
   }
 
+  /* 로고 아래의 선 */
+  .line {
+    border-bottom: 1.5px solid #1e264d;
+    width: 600px;
+  }
+
+  .logo {
+    width: 30%;
+    height: 30%;
+    margin: 20px auto;
+  }
+
   .box {
     /* background-color: #1e90ff; */
-    width: 100%;
+    width: 500px;
+    position: static;
+    transform: translate(0, 0);
   }
 
   div.settings label {
@@ -129,7 +143,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .id_description {
-  top: 28%;
+  top: 22.5%;
   left: 30%;
   position: absolute;
   text-align: center;
@@ -187,8 +201,6 @@ div.settings label {
 div.settings label:after {
   content: "";
 }
-
-div.settings input {}
 
 .gender {
   margin-right: 10px;
