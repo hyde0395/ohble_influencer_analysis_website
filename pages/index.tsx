@@ -42,6 +42,13 @@ export default function Home() {
     }).then((res) => {
       if (res.status === 200) console.log("Mail send", res);
     });
+
+    await fetch("/api/post/new", {
+      method: "POST",
+      body: JSON.stringify(data),
+    }).then((res) => {
+      if (res.status === 200) console.log("success");
+    });
   };
 
   return (
@@ -50,7 +57,8 @@ export default function Home() {
       <div className="line"></div>
       <form
         acceptCharset="utf-8"
-        method="post"
+        // action="/api/post/new"
+        method="POST"
         className="box"
         onSubmit={handleSubmit(onValid)}
       >
