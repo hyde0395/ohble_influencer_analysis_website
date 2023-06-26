@@ -54,9 +54,14 @@ body {
   padding-top: 30px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .box h1 {
-    font: 1.5rem;
+    font-size: 80px;
+
   }
 
   /* 로고 아래의 선 */
