@@ -12,11 +12,13 @@ body {
   margin: 0 auto;
   border-bottom: 1.5px solid #1e264d;
 }
+
 .logo {
   width: 10%;
   height: 10%;
   margin: 20px auto;
 }
+
 /* 물음표 버튼 */
 .questionMark {
   margin-right: 5px;
@@ -45,6 +47,7 @@ body {
   text-align: center;
   overflow: hidden;
 }
+
 .box h1 {
   color: #1e264d;
   font-size: 70px;
@@ -58,6 +61,7 @@ input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
 /* ID, Email, 나이 입력칸  */
 .box input[type="text"],
 .box input[type="number"] {
@@ -73,6 +77,7 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #1e264d;
   border-radius: 24px;
 }
+
 .box input[type="submit"] {
   border: 0;
   background: #1e264d;
@@ -86,6 +91,7 @@ input[type="number"]::-webkit-inner-spin-button {
   cursor: pointer;
   font-size: 1rem;
 }
+
 /* .box input[type="submit"]:hover {
   background: #1e90ff;
 } */
@@ -109,6 +115,7 @@ input[type="number"]::-webkit-inner-spin-button {
   text-align: center;
   color: #5f5f5f;
 }
+
 .id_example1 {
   font-size: 1px;
 }
@@ -135,28 +142,32 @@ small {
   text-align: center;
   margin-left: 120px;
 }
+
 /* 중간 점 선 */
 .dashed_line {
   margin: 25px auto;
   border-bottom: 4px dashed #1e264d;
 }
+
 div.settings {
   display: grid;
   grid-template-columns: max-content max-content;
   grid-gap: 5px;
   /* background-color: aqua; */
 }
+
 div.settings label {
   text-align: right;
   display: inline-block;
   width: 150px;
   margin: auto 0;
-  text-align: right;
   font-size: 20px;
 }
+
 div.settings label:after {
   content: "";
 }
+
 .gender {
   margin-right: 10px;
 }
@@ -164,15 +175,18 @@ div.settings label:after {
 .inputSection {
   max-width: 500px;
   margin: 0 auto;
+
 }
+
 .radio_box {
   padding: 15px 10px;
 }
+
 .radio_box input[type="radio"] {
   display: none;
 }
 
-.radio_box input[type="radio"] + label {
+.radio_box input[type="radio"]+label {
   display: inline-block;
   cursor: pointer;
   height: 24px;
@@ -184,11 +198,13 @@ div.settings label:after {
   font-size: 1rem;
   /* margin-right: 20px; */
 }
-.radio_box input[type="radio"] + label {
+
+.radio_box input[type="radio"]+label {
   background-color: #fff;
   color: #333;
 }
-.radio_box input[type="radio"]:checked + label {
+
+.radio_box input[type="radio"]:checked+label {
   background-color: #333;
   color: #fff;
 }
@@ -233,4 +249,6 @@ div.settings label:after {
   .box input[type="number"] {
     padding: 12px 12px;
   }
+}
+
 }
