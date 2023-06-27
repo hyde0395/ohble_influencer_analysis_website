@@ -1,6 +1,13 @@
 import { useState } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import OhbleLogo from "./images/ohble_logo.png";
+
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
 
 export default function Home() {
   // form 데이터 자료형 지정
@@ -10,6 +17,29 @@ export default function Home() {
     age: number;
     gender: string;
   }
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.async = true;
+    try {
+      if (window.Kakao) {
+        const kakao = window.Kakao;
+        if (!kakao.isInitialized()) {
+          window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
+          console.log("카카오 서버 연결 성공");
+        }
+      }
+      window.Kakao.Channel.createChatButton({
+        container: "#kakao-talk-channel-chat-button",
+        channelPublicId: "_xkAERxj",
+        title: "consult",
+        size: "small",
+        color: "yellow",
+        supportMultipleDensities: true,
+      });
+      document.body.appendChild(script);
+      document.body.removeChild(script);
+    } catch (err) {}
+  }, []);
 
   // 물음표 버튼 State 설정
   const [visible, setVisible] = useState(false);
@@ -30,7 +60,7 @@ export default function Home() {
 
   const onValid = async (data: HookFormTypes) => {
     console.log(data, "유효함");
-    alert("제출되었습니다");
+    alert("제출되었습니다. 2~3일 내 이메일을 통해 분석 결과가 제공됩니다");
     // setSubmit(true);
     await fetch("/api/contact", {
       method: "POST",
@@ -62,7 +92,9 @@ export default function Home() {
         className="box"
         onSubmit={handleSubmit(onValid)}
       >
-        <h1>오블 블로그 지수 분석기</h1>
+        <h1>
+          오블 블로그 <div className="inline">지수 분석기 </div>
+        </h1>
 
         <div className="inputSection">
           <div className="settings">
@@ -163,7 +195,17 @@ export default function Home() {
           value="제출하기"
           disabled={isSubmitting}
         />
+        <p>* 제출 후 2~3일 내 이메일을 통해 블로그 분석 결과가 제공됩니다</p>
       </form>
+      <div
+        style={{
+          position: "fixed",
+          zIndex: "999",
+          bottom: "5px",
+          right: "10px",
+        }}
+        id="kakao-talk-channel-chat-button"
+      ></div>
     </>
   );
 }

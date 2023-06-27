@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-}
-
-module.exports = nextConfig
+  reactStrictMode: false,
+  async rewrites() {
+    return [
+      {
+        source: "/:path*",
+        destination: "https://www.ohble.net/:path*",
+      },
+    ];
+  },
+};
+module.exports = nextConfig;
