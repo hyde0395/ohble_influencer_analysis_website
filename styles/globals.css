@@ -4,7 +4,9 @@ body {
   font-family: sans-serif;
   background: #ffffff;
 }
-
+.inline {
+  display: inline;
+}
 /* 로고 아래의 선 */
 .line {
   margin: 0 auto;
@@ -52,47 +54,6 @@ body {
   text-transform: uppercase;
   font-weight: 800;
   padding-top: 30px;
-}
-
-@media screen and (max-width: 768px) {
-  body {
-    overflow-x: hidden;
-  }
-
-  .box h1 {
-    font-size: 80px;
-
-  }
-
-  /* 로고 아래의 선 */
-  .line {
-    border-bottom: 1.5px solid #1e264d;
-    width: 600px;
-  }
-
-  .logo {
-    width: 30%;
-    height: 30%;
-    margin: 20px auto;
-  }
-
-  .box {
-    /* background-color: #1e90ff; */
-    width: 500px;
-    position: static;
-    transform: translate(0, 0);
-  }
-
-  div.settings label {
-    font-size: 1.5rem;
-  }
-
-  .box input[type="text"],
-  .box input[type="number"] {
-    padding: 12px 12px;
-  }
-
-
 }
 
 /* number input 화살표 없애기 */
@@ -148,8 +109,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .id_description {
-  top: 22.5%;
-  left: 30%;
+  top: 24.7%;
+  left: 34%;
   position: absolute;
   text-align: center;
   color: #5f5f5f;
@@ -246,4 +207,48 @@ div.settings label:after {
 .radio_box input[type="radio"]:checked+label {
   background-color: #333;
   color: #fff;
+}
+
+@media screen and (max-width: 1000px) {
+  .box h1 {
+    font: 1.5rem;
+  }
+
+  .id_description {
+    top: 33%;
+    left: 10%;
+  }
+
+  /* 로고 아래의 선 */
+  .line {
+    border-bottom: 1.5px solid #1e264d;
+    width: 600px;
+  }
+
+  .inline {
+    display: block;
+  }
+  .logo {
+    width: 30%;
+    height: 30%;
+    margin: 20px auto;
+  }
+
+  .box {
+    /* background-color: #1e90ff; */
+    width: 500px;
+    position: static;
+    transform: translate(0, 0);
+  }
+
+  div.settings label {
+    font-size: 1.5rem;
+  }
+
+  .box input[type="text"],
+  .box input[type="number"] {
+    padding: 12px 12px;
+  }
+}
+
 }
