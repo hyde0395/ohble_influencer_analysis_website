@@ -15,7 +15,7 @@ export default function sendGmail(req: NextApiRequest, res: NextApiResponse) {
   });
 
   const toHostMailData = {
-    from: "aranea0395@gmail.com",
+    from: "ohble.blog@gmail.com",
     to: "apologus0395@gmail.com",
     subject: `${req.body.id}님이 수요조사를 완료하였습니다.`,
     text: `ID :${req.body.id} `,
